@@ -10,3 +10,6 @@ resources:
   limits:
     cpu: "2"
     memory: "2Gi"
+service:
+  type: NodePort
+  port: 8080
