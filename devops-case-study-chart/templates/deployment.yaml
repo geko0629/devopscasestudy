@@ -41,15 +41,15 @@ spec:
               containerPort: {{ .Values.service.port }}
               protocol: TCP
           env:
-            #- name: MYSQL_HOST
-            #  value: "{{ .Release.Name }}-mysql" # MySQL service name
-            #- name: MYSQL_PORT
-            #  value: "3306"                     # MySQL service port
-            #- name: MYSQL_DATABASE
-            #  valueFrom:
-            #    secretKeyRef:
-            #      name: "{{ .Release.Name }}-mysql-svcbind-custom-user"
-            #      key: database
+            - name: MYSQL_HOST
+              value: "{{ .Release.Name }}-mysql" # MySQL service name
+            - name: MYSQL_PORT
+              value: "3306"                     # MySQL service port
+            - name: MYSQL_DATABASE
+              valueFrom:
+                secretKeyRef:
+                  name: "{{ .Release.Name }}-mysql-svcbind-custom-user"
+                  key: database
             - name: MYSQL_USER
               valueFrom:
                 secretKeyRef:
@@ -60,10 +60,6 @@ spec:
                 secretKeyRef:
                   name: "{{ .Release.Name }}-mysql-svcbind-custom-user"
                   key: password
-          livenessProbe:
-            {{- toYaml .Values.livenessProbe | nindent 12 }}
-          readinessProbe:
-            {{- toYaml .Values.readinessProbe | nindent 12 }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           {{- with .Values.volumeMounts }}
