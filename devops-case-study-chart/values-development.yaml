@@ -1,0 +1,12 @@
+namespace: development
+environment: development
+mysql:
+  auth:
+    username: devuser
+    password: devpassword
+    database: devdatabase
+replicaCount: 1
+resources:
+  limits:
+    cpu: "1"
+    memory: "512Mi"

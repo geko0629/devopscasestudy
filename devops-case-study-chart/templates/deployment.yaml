@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ include "devops-case-study-chart.fullname" . }}
+  namespace: {{ .Values.namespace }}
   labels:
     {{- include "devops-case-study-chart.labels" . | nindent 4 }}
 spec:
@@ -42,9 +43,9 @@ spec:
               protocol: TCP
           env:
             - name: MYSQL_HOST
-              value: "{{ .Release.Name }}-mysql" # MySQL service name
+              value: "{{ .Release.Name }}-mysql-{{ .Values.environment }}"
             - name: MYSQL_PORT
-              value: "3306"                     # MySQL service port
+              value: "3306"
             - name: MYSQL_DATABASE
               valueFrom:
                 secretKeyRef:
