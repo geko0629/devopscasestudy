@@ -4,7 +4,7 @@ mysql:
     username: devuser
     password: devpassword
     database: devdatabase
-replicaCount: 3
+replicaCount: 1
 resources:
   limits:
     cpu: 500m
