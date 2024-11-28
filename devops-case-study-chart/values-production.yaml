@@ -12,3 +12,5 @@ resources:
 service:
   type: NodePort
   port: 8080
+image:
+  tag: latest
