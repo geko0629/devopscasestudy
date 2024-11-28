@@ -7,10 +7,10 @@ mysql:
 replicaCount: 3
 resources:
   limits:
-    cpu: "2"
-    memory: "2Gi"
+    cpu: 2
+    memory: 2Gi
 service:
   type: NodePort
   port: 8080
 image:
-  tag: 1.4
+  tag: latest
