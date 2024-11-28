@@ -7,7 +7,7 @@ mysql:
 replicaCount: 3
 resources:
   limits:
-    cpu: 1
+    cpu: 500m
     memory: 1Gi
 service:
   type: ClusterIP
