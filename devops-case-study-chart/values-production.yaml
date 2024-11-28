@@ -13,4 +13,4 @@ service:
   type: NodePort
   port: 8080
 image:
-  tag: latest
+  tag: 1.4
