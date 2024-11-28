@@ -6,12 +6,10 @@
 # separate terms of service, privacy policy, and support
 # documentation.
 
-name: Java CI with Maven
+name: Java CI with Maven - Production
 
 on:
   push:
-    branches: [ "main" ]
-  pull_request:
     branches: [ "main" ]
 
 jobs:
@@ -29,11 +27,11 @@ jobs:
           cache: maven
       - name: Build with Maven
         run: mvn clean install
-      - name: Build & push Docker image
+      - name: Build & push Docker image for Production
         uses: mr-smithers-excellent/docker-build-push@v6
         with:
           image: gekoline/devops-case-study
-          tags: 1.3
+          tags: latest # Production image tag
           registry: docker.io
           dockerfile: Dockerfile
           username: ${{ secrets.DOCKER_USERNAME }}
