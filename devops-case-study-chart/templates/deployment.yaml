@@ -43,9 +43,9 @@ spec:
               protocol: TCP
           env:
             - name: MYSQL_HOST
-              value: "{{ .Release.Name }}-mysql-{{ .Values.environment }}"
+              value: "{{ .Release.Name }}-mysql" # MySQL service name
             - name: MYSQL_PORT
-              value: "3306"
+              value: "3306"                     # MySQL service port
             - name: MYSQL_DATABASE
               valueFrom:
                 secretKeyRef:

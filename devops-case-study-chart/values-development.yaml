@@ -1,5 +1,4 @@
 namespace: development
-environment: development
 mysql:
   auth:
     username: devuser
@@ -10,3 +9,7 @@ resources:
   limits:
     cpu: "1"
     memory: "512Mi"
+service:
+  type: ClusterIP
+  port: 8080
+
