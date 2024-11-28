@@ -48,4 +48,13 @@ public class StudentService {
     public void deleteAllStudents() {
         studentRepository.deleteAll();
     }
+
+    public Student changeName(Long id, String newName) {
+        Student student = studentRepository.findById(id).orElse(null);
+        if (student == null) {
+            return null;
+        }
+        student.setName(newName);
+        return studentRepository.save(student);
+    }
 }
