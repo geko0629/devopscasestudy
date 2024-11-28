@@ -1,5 +1,4 @@
 namespace: development
-environment: development
 mysql:
   auth:
     username: devuser

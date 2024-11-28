@@ -1,5 +1,4 @@
 namespace: production
-environment: production
 mysql:
   auth:
     username: produser
