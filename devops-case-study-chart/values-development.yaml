@@ -2,13 +2,11 @@ namespace: development
 mysql:
   auth:
     username:
-      secretKeyRef:
-        name: kube-secret
-        key: DB_USERNAME
+      name: kube-secret
+      key: DB_USERNAME
     password:
-      secretKeyRef:
-        name: kube-secret
-        key: DB_PASSWORD
+      name: kube-secret
+      key: DB_PASSWORD
     database: devdatabase
 replicaCount: 1
 resources:
