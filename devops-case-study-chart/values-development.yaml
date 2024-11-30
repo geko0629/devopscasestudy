@@ -1,8 +1,16 @@
 namespace: development
 mysql:
   auth:
-    username: '{{ printf "secretKeyRef:%s:%s" "kube-secret" "DB_USERNAME" }}'
-    password: '{{ printf "secretKeyRef:%s:%s" "kube-secret" "DB_PASSWORD" }}'
+    username:
+      valueFrom:
+        secretKeyRef:
+          name: kube-secret
+          key: DB_USERNAME
+    password:
+      valueFrom:
+        secretKeyRef:
+          name: kube-secret
+          key: DB_PASSWORD
     database: devdatabase
 replicaCount: 1
 resources:

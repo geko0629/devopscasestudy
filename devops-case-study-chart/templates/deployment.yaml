@@ -53,22 +53,14 @@ spec:
                   key: database
             - name: MYSQL_USER
               valueFrom:
-                {{- if contains "secretKeyRef:" .Values.mysql.auth.username }}
                 secretKeyRef:
-                  name: {{ tpl "{{ index (splitList \":\" .Values.mysql.auth.username) 1 }}" . }}
-                  key: {{ tpl "{{ index (splitList \":\" .Values.mysql.auth.username) 2 }}" . }}
-                {{- else }}
-              value: {{ tpl .Values.mysql.auth.username . }}
-                {{- end }}
+                  name: "{{ .Release.Name }}-mysql-svcbind-custom-user"
+                  key: username
             - name: MYSQL_PASSWORD
               valueFrom:
-                {{- if contains "secretKeyRef:" .Values.mysql.auth.password }}
                 secretKeyRef:
-                  name: {{ tpl "{{ index (splitList \":\" .Values.mysql.auth.password) 1 }}" . }}
-                  key: {{ tpl "{{ index (splitList \":\" .Values.mysql.auth.password) 2 }}" . }}
-                {{- else }}
-              value: {{ tpl .Values.mysql.auth.password . }}
-                {{- end }}
+                  name: "{{ .Release.Name }}-mysql-svcbind-custom-user"
+                  key: password
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           {{- with .Values.volumeMounts }}
