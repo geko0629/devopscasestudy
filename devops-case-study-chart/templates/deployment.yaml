@@ -54,13 +54,13 @@ spec:
             - name: MYSQL_USER
               valueFrom:
                 secretKeyRef:
-                  name: "{{ .Release.Name }}-mysql-svcbind-custom-user"
-                  key: username
+                  name: {{ .Values.mysql.auth.username.name }}
+                  key: {{ .Values.mysql.auth.username.key }}
             - name: MYSQL_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: "{{ .Release.Name }}-mysql-svcbind-custom-user"
-                  key: password
+                  name: {{ .Values.mysql.auth.password.name }}
+                  key: {{ .Values.mysql.auth.password.key }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           {{- with .Values.volumeMounts }}
