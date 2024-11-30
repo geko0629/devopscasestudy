@@ -5,10 +5,10 @@ mysql:
       secretKeyRef:
         name: kube-secret
         key: DB_USERNAME
-      password:
-        secretKeyRef:
-          name: kube-secret
-          key: DB_PASSWORD
+    password:
+      secretKeyRef:
+        name: kube-secret
+        key: DB_PASSWORD
     database: proddatabase
 replicaCount: 2
 resources:
