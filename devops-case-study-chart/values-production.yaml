@@ -1,8 +1,14 @@
 namespace: production
 mysql:
   auth:
-    username: produser
-    password: prodpassword
+    username:
+      secretKeyRef:
+        name: kube-secret
+        key: DB_USERNAME
+      password:
+        secretKeyRef:
+          name: kube-secret
+          key: DB_PASSWORD
     database: proddatabase
 replicaCount: 2
 resources:
