@@ -1,6 +1,5 @@
 namespace: development
 mysql:
-  host: development-host
   auth:
     username: devuser
     password: devpassword

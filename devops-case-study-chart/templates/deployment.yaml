@@ -43,7 +43,7 @@ spec:
               protocol: TCP
           env:
             - name: MYSQL_HOST
-              value: "{{ .Values.mysql.host }}-mysql"
+              value: "{{ .Release.Name }}-mysql" # MySQL service name
             - name: MYSQL_PORT
               value: "3306"                     # MySQL service port
             - name: MYSQL_DATABASE
