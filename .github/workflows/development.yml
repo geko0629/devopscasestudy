@@ -22,7 +22,7 @@ jobs:
       - name: Build & push Docker image for Development
         uses: mr-smithers-excellent/docker-build-push@v6
         with:
-          image: gekoline/devops-case-study
+          image: geko0629/devops
           tags: dev # Development image tag
           registry: docker.io
           dockerfile: Dockerfile
